@@ -3,22 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Login" >
+             Title="Lands" >
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="10">
-                <Label
-                FontAttributes="Bold"
-                FontSize="Large"
-                HorizontalOptions="Center"
-                Text="Lands">
-                </Label>
+            <StackLayout Padding="5">
                 <Image
                 Source="onu_logo"
                 WidthRequest="130">
 
                 </Image>
-                <Grid>
+                <Grid Margin="10, 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
@@ -26,7 +20,8 @@
                     <Label
                     Grid.Row="0"
                     Grid.Column="0"
-                    Text="Email">
+                    Text="Email"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
                     Grid.Row="0"
@@ -37,7 +32,8 @@
                     <Label
                     Grid.Row="1"
                     Grid.Column="0"
-                    Text="Password">
+                    Text="Password"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
                     Grid.Row="1"
@@ -46,8 +42,12 @@
                     Placeholder="Enter your password...">
                     </Entry>
                 </Grid>
+                <ActivityIndicator>
+
+                </ActivityIndicator>
                 <StackLayout
-                Orientation="Horizontal">
+                    Margin="10,0"
+                    Orientation="Horizontal">
                     <Label
                     HorizontalOptions="StartAndExpand"
                     Text="Rememberme on this device"
@@ -57,44 +57,49 @@
                     HorizontalOptions="End">
                     </Switch>
                 </StackLayout>
-
-                <ActivityIndicator>
-
-                </ActivityIndicator>
+                <Label
+                    HorizontalOptions="Center"
+                    TextColor="Blue"
+                    Text="Forgot your password">
+                </Label>
+                
                 <StackLayout
-                Margin="40, 0">
+                Margin="40, 0"
+                    Orientation="Horizontal">
                     <Button
-                    BackgroundColor="Navy"
-                    BorderRadius="23"
-                    HeightRequest="46"
-                    Text="Login"
-                    TextColor="White">
+                        BackgroundColor="Navy"
+                        BorderRadius="23"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Login"
+                        TextColor="White">
                     </Button>
                     <Button
-                    BackgroundColor="Purple"
-                    BorderRadius="23"
-                    HeightRequest="46"
-                    Text="Register"
-                    TextColor="White">
+                        BackgroundColor="Purple"
+                        BorderRadius="23"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Register"
+                        TextColor="White">
                     </Button>
                 </StackLayout>
                 <StackLayout
                 Margin="35,0"
                 Orientation="Horizontal">
                     <Image
-                    HorizontalOptions="Start"
-                    Source="facebook_logo"
-                    WidthRequest="50">
+                        HorizontalOptions="Start"
+                        Source="facebook_logo"
+                        WidthRequest="50">
                     </Image>
                     <Image
-                    HorizontalOptions="CenterAndExpand"
-                    Source="twitter_logo"
-                    WidthRequest="50">
+                        HorizontalOptions="CenterAndExpand"
+                        Source="twitter_logo"
+                        WidthRequest="50">
                     </Image>
                     <Image
-                    HorizontalOptions="End"
-                    Source="instagram_logo"
-                    WidthRequest="50">
+                        HorizontalOptions="End"
+                        Source="instagram_logo"
+                        WidthRequest="50">
                     </Image>
                 </StackLayout>
             </StackLayout>

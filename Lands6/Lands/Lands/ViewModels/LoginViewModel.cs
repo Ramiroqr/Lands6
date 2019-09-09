@@ -1,13 +1,14 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System.Windows.Input;
-using Xamarin.Forms;
-
-namespace Lands.ViewModels
+﻿namespace Lands.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
+    using System.Windows.Input;
+    using Xamarin.Forms;
+    using Lands.Views;
     class LoginViewModel : BaseViewModel
     {
         #region Attributes
         private string password;
+        private string email;
         private bool isRunning;
         private bool isEnabled;
         #endregion
@@ -15,20 +16,20 @@ namespace Lands.ViewModels
         #region Properties
         public string Email
         {
-            get;
-            set;
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
         }
 
         public string Password
         {
-            get { return password; }
-            set { SetValue(ref password, value); }
+            get { return this.password; }
+            set { SetValue(ref this.password, value); }
         }
 
         public bool IsRunning
         {
-            get { return isRunning; }
-            set { SetValue(ref isRunning, value); }
+            get { return this.isRunning; }
+            set { SetValue(ref this.isRunning, value); }
         }
 
         public bool IsRemembered
@@ -39,8 +40,8 @@ namespace Lands.ViewModels
 
         public bool IsEnabled
         {
-            get { return isEnabled; }
-            set { SetValue(ref isEnabled, value); }
+            get { return this.isEnabled; }
+            set { SetValue(ref this.isEnabled, value); }
         }
         #endregion
 
@@ -49,6 +50,9 @@ namespace Lands.ViewModels
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+
+            this.Email = "ram@gmail.com";
+            this.Password = "1234";
         }
 
         #endregion
@@ -81,8 +85,13 @@ namespace Lands.ViewModels
                 return;
             }
 
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
             if (this.Email != "ram@gmail.com" || this.Password != "1234")
             {
+                this.IsRunning = false;
+                this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     "Email or password incorrect",
@@ -91,12 +100,14 @@ namespace Lands.ViewModels
                 return;
             }
 
-            await Application.Current.MainPage.DisplayAlert(
-                    "Ok",
-                    "Fuck yeahhhh!!!.",
-                    "Accept");
-            
+            this.IsRunning = false;
+            this.IsEnabled = true;
 
+            this.Email = string.Empty;
+            this.Password = string.Empty;
+
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
         #endregion
 

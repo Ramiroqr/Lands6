@@ -42,7 +42,7 @@
                     "Error",
                     connection.Message,
                     "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
+                await Application.Current.MainPage.Navigation.PopAsync();//retorna la pagina hacia atras
                 return;
             }
 
@@ -57,6 +57,7 @@
                     "Error",
                     response.Message,
                     "Accept");
+                await Application.Current.MainPage.Navigation.PopAsync();//retorna la pagina hacia atras
                 return;
             }
 

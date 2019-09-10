@@ -1,16 +1,14 @@
-﻿using Lands.Models;
-using Newtonsoft.Json;
-using Plugin.Connectivity;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Lands.Services
+﻿namespace Lands.Services
 {
+    using Lands.Models;
+    using Newtonsoft.Json;
+    using Plugin.Connectivity;
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using System.Threading.Tasks;
     class ApiService
     {
         public async Task<Response> CheckConnection()

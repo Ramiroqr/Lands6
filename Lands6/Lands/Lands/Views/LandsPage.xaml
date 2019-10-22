@@ -10,6 +10,7 @@
             BindingContext="{Binding Lands}"
             Padding="5">
             <SearchBar
+                HeightRequest="42"
                 Text="{Binding Filter, Mode=TwoWay}"
                 Placeholder="Search..."
                 SearchCommand="{Binding SearchCommand}">
@@ -26,9 +27,13 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame
-                                CornerRadius="20"
+                                CornerRadius="14"
                                 HasShadow="True"
-                                Margin="5">
+                                Margin="5"
+                                Padding="8">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>

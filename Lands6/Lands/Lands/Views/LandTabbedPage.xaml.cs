@@ -4,11 +4,11 @@ using Xamarin.Forms.Xaml;
 namespace Lands.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LandPage : ContentPage
+	public partial class LandTabbedPage : TabbedPage
 	{
-		public LandPage ()
+		public LandTabbedPage ()
 		{
-            InitializeComponent();
-        }
+			InitializeComponent ();
+		}
 	}
 }
